@@ -1,4 +1,4 @@
-(define-module (guix-config ipv4-119-45-133-18)
+(define-module (luhux system ipv4-119-45-133-18)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages screen)
@@ -19,7 +19,7 @@
   #:use-module (gnu services avahi)
   #:use-module (gnu services auditd)
   #:use-module (gnu system nss)
-  #:use-module (guix-config root)
+  #:use-module (luhux system root)
   #:use-module ((luhux manifest luhux) :prefix luhux:))
 
 (define-public ipv4-119-45-133-18:os-host-name "119-45-133-18")

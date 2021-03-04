@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -u
+
+syncthing_confdir=${HOME}/.config/syncthing
+syncthing_datadir=${HOME}/syncthing
+
+guix environment --container \
+     --no-cwd \
+     --network \
+     --share=${syncthing_confdir} \
+     --share=${syncthing_datadir} \
+     -- syncthing \
+     
+

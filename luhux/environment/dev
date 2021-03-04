@@ -1,0 +1,47 @@
+#!/bin/sh
+
+set -u
+
+POS=$(dirname $(realpath $0))
+
+tmux_conf=${POS}/../dotfile/.tmux.conf
+emacs_conf=${POS}/../dotfile/.emacs.container
+emacs_plugins_conf_dir=${POS}/../dotfile/.emacs-config/
+emacs_rime_datadir=${HOME}/.emacs.d/rime
+git_conf=${POS}/../dotfile/.gitconfig
+
+export EDITOR='emacsclient'
+guix environment --container \
+     --no-cwd \
+     --network \
+     --ad-hoc glibc-utf8-locales ncurses \
+     --preserve=^TERM$ \
+     --preserve=^LANG$ \
+     --preserve=^GUIX_LOCPATH$ \
+     --ad-hoc tmux \
+     --expose=${tmux_conf}=${HOME}/.tmux.conf \
+     --ad-hoc nss-certs curl \
+     --expose=/etc/ssl \
+     --ad-hoc git \
+     --expose=${git_conf}=${HOME}/.gitconfig \
+     --ad-hoc emacs-no-x \
+     --expose=${emacs_conf}=${HOME}/.emacs \
+     --preserve=^EDITOR$ \
+     --ad-hoc emacs-rime \
+     --share=${emacs_rime_datadir}=${HOME}/.emacs.d/rime \
+     --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/basic.el \
+     --ad-hoc emacs-ggtags global gcc-toolchain gdb\
+     --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/c-setup.el \
+     --ad-hoc guile guix emacs-paredit emacs-yasnippet emacs-magit emacs-geiser \
+     --expose=${emacs_plugins_conf_dir}/guile-setup.el=${HOME}/.emacs-config/guile-setup.el \
+     --expose=${emacs_plugins_conf_dir}/mail-setup.el=${HOME}/.emacs-config/mail-setup.el \
+     --ad-hoc emacs-which-key \
+     --expose=${emacs_plugins_conf_dir}/which-key-setup.el=${HOME}/.emacs-config/which-key-setup.el \
+     --ad-hoc emacs-sdcv sdcv stardict-ecdict \
+     --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
+     --ad-hoc make \
+     --ad-hoc bash coreutils findutils diffutils patch gawk sed grep inetutils texinfo man-db gzip bzip2 xz zstd less \
+     --ad-hoc sicp man-pages \
+     "$@"
+     
+

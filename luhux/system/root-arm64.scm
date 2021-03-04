@@ -1,9 +1,9 @@
-(define-module (guix-config root-arm64)
+(define-module (luhux system root-arm64)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)
-  #:use-module (guix-config root)
-  #:use-module (guix-config root-arm))
+  #:use-module (luhux system root)
+  #:use-module (luhux system root-arm))
 
 (define-public root-arm64:os-kernel
   linux-libre-arm64-generic)

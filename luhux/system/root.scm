@@ -1,4 +1,4 @@
-(define-module (guix-config root)
+(define-module (luhux system root)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)

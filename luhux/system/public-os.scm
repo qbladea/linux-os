@@ -2,7 +2,7 @@
 ;; 用于公用的操作系统
 ;;
 
-(define-module (guix-config public-os)
+(define-module (luhux system public-os)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages screen)
@@ -18,7 +18,7 @@
   #:use-module (gnu packages networking)
   #:use-module (gnu packages vim)
   #:use-module (gnu packages nano)
-  #:use-module (luhux packages wayland)
+  #:use-module (luhux packages wm)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages virtualization)
   #:use-module (gnu packages games)
@@ -33,7 +33,7 @@
   #:use-module (gnu services xorg)
   #:use-module (gnu services avahi)
   #:use-module (gnu system nss)
-  #:use-module (guix-config root)
+  #:use-module (luhux system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
 

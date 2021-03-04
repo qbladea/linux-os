@@ -1,4 +1,4 @@
-(define-module (guix-config root-arm)
+(define-module (luhux system root-arm)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)
@@ -6,7 +6,7 @@
   #:use-module (gnu packages certs)
   #:use-module (gnu packages package-management)
   #:use-module (gnu bootloader u-boot)
-  #:use-module (guix-config root))
+  #:use-module (luhux system root))
 
 (define-public root-arm:os-bootloader
   (bootloader-configuration

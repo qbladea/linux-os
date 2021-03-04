@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -u
+
+POS=$(dirname $(realpath $0))
+
+tmux_conf=${POS}/../dotfile/.tmux.conf
+emacs_conf=${POS}/../dotfile/.emacs.container
+emacs_plugins_conf_dir=${POS}/../dotfile/.emacs-config/
+emacs_rime_datadir=${HOME}/.emacs.d/rime
+
+guix environment --container \
+     --no-cwd \
+     --network \
+     --ad-hoc glibc-utf8-locales ncurses \
+     --preserve=^TERM$ \
+     --preserve=^LANG$ \
+     --preserve=^GUIX_LOCPATH$ \
+     --ad-hoc tmux \
+     --expose=${tmux_conf}=${HOME}/.tmux.conf \
+     --ad-hoc nss-certs curl \
+     --expose=/etc/ssl \
+     --ad-hoc emacs-no-x \
+     --expose=${emacs_conf}=${HOME}/.emacs \
+     --ad-hoc emacs-rime \
+     --share=${emacs_rime_datadir}=${HOME}/.emacs.d/rime \
+     --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/basic.el \
+     --ad-hoc emacs-w3m w3m \
+     --ad-hoc emacs-sdcv sdcv stardict-ecdict\
+     --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
+     --ad-hoc busybox \
+     "$@"
+     
+

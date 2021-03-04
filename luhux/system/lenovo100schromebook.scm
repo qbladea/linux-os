@@ -1,4 +1,4 @@
-(define-module (guix-config lenovo100schromebook)
+(define-module (luhux system lenovo100schromebook)
   #:use-module (gnu)
   #:use-module (guix modules)
   #:use-module (gnu packages)
@@ -10,7 +10,7 @@
   #:use-module (gnu packages terminals)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages wm)
-  #:use-module (luhux packages wayland)
+  #:use-module (luhux packages wm)
   #:use-module (luhux packages linux)
   #:use-module (gnu packages admin)
   #:use-module (gnu services ssh)
@@ -27,7 +27,7 @@
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
-  #:use-module (guix-config root)
+  #:use-module (luhux system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
 (define %battery-low-job
