@@ -1,0 +1,9 @@
+altscreen on
+attrcolor b ".I"    # 允许加粗色彩--由于某些原因是必须的
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'   # 告诉screen如何设置颜色。AB 指背景，AF 指前景
+defbce on    # 使用当前背景色来显示删除的字符
+term screen-256color
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+startup_message off

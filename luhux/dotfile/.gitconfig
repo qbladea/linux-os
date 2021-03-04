@@ -1,0 +1,5 @@
+[user]
+	email = qblade@protonmail.com
+	name = qblade
+[pull]
+	rebase = true
