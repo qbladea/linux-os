@@ -1,0 +1,8 @@
+* luhux 的 guix 操作系统配置文件
+
+* 使用
+
+  #+BEGIN_SRC shell
+  git clone this-repo /path/to/this-repo
+  export GUIX_BUILD_OPTIONS=-L/path/to/this-repo
+  #+END_SRC
