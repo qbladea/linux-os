@@ -1,0 +1,9 @@
+* 杂项文件
+
+* guixenv.sh
+
+  在非Guix System发行使用Guix包管理器需要的环境变量
+
+  #+BEGIN_SRC
+  # cp guixenv.sh /etc/profile.d/
+  #+END_SRC
