@@ -51,7 +51,6 @@
                 "riscv"))
 	      (guix-support? #t)))
     (dbus-service)
-    (elogind-service)
     (service network-manager-service-type)
     (service wpa-supplicant-service-type)
     (service libvirt-service-type
