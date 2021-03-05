@@ -1,0 +1,36 @@
+* 容器环境
+
+* 使用
+
+在设定好~GUIX_BUILD_OPTIONS~环境变量后直接执行脚本
+
+* dev
+
+用于开发的容器环境
+
+
+ #+BEGIN_SRC shell
+ ./dev --share=/srv/git/project
+ #+END_SRC
+
+
+* misc
+
+用于杂项的容器环境
+ 1. 上网
+ 2. 写博客
+ 3. 玩游戏
+
+ #+BEGIN_SRC shell
+ ./misc
+ #+END_SRC
+
+* syncthing
+
+隔离的syncthing用于同步数据
+
+将需要同步的数据放在 ${HOME}/syncthing
+
+ #+BEGIN_SRC shell
+ ./syncthing
+ #+END_SRC
