@@ -2,6 +2,9 @@
 ;; 为什么要写这么一个配置文件:
 ;; docker太脏了，我不想让docker污染我的机器
 
+;; 存在的问题:
+;; 无法使用 --share=xxx=/var/lib 作为存储docker文件的共享，因为9p共享文件系统无法chown，解决方法:多加一块挂载在 /var/lib 的虚拟磁盘
+
 (define-module (luhux system only-docker)
   #:use-module (gnu)
   #:use-module (gnu packages)
@@ -51,12 +54,9 @@
                                      (provision '(loopback)))))
    (syslog-service)
    (service urandom-seed-service-type)
-   ;; The LVM2 rules are needed as soon as LVM2 or the device-mapper is
-   ;; used, so enable them by default.  The FUSE and ALSA rules are
-   ;; less critical, but handy.
    (service udev-service-type
             (udev-configuration
-             (rules (list lvm2 fuse alsa-utils crda))))
+             (rules (list lvm2 fuse))))
    (service special-files-service-type
             `(("/bin/sh" ,(file-append bash "/bin/sh"))
               ("/usr/bin/env" ,(file-append coreutils "/bin/env"))))
@@ -88,19 +88,23 @@
    (target "nodev")
    (terminal-outputs '(console))))
 
-;; dummy file-systems config
 (define-public os-file-systems
-  (cons (file-system
-         (mount-point "/")
-         (device "nodev")
-         (type "none"))
-        %base-file-systems))
+  (append
+   (list
+    (file-system
+      (mount-point "/") ;; dummy root file system
+      (device "nodev")
+      (type "none")))
+   %base-file-systems))
 
 (define-public os-packages
   (list
    nss-certs
    busybox
-   tmux))
+   kmod ; 用于加载内核模块
+   tmux
+   e2fsprogs
+   btrfs-progs))
 
 (define-public only-docker:os
   (operating-system
@@ -111,6 +115,7 @@
     (host-name os-host-name)
     (issue os-issue)
     (users os-users)
+    (packages os-packages)
     (file-systems os-file-systems)
     (bootloader os-bootloader)
     (services os-services)))
