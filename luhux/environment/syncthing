@@ -8,6 +8,7 @@ syncthing_datadir=${HOME}/syncthing
 guix environment --container \
      --no-cwd \
      --network \
+     --ad-hoc syncthing \
      --share=${syncthing_confdir} \
      --share=${syncthing_datadir} \
      -- syncthing \
