@@ -8,6 +8,7 @@
   #:use-module (guix build-system gnu)
   #:use-module (guix utils))
 
+
 (define-public libucl
   (package
     (name "libucl")
@@ -31,7 +32,7 @@
     (arguments
      `(#:tests? #f)) ;; no tests
     (home-page "https://github.com/vstakhov/libucl")
-    (synopsis "Universal configuration language")
-    (description "Universal configuration language.
-fully compatible with JSON format and is able to parse json files")
+    (synopsis "Universal configuration language parser")
+     (description "libucl is a configuration language
+that is easy to read, write and compatible with JSON.")
     (license license:bsd-2)))
