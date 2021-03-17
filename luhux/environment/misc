@@ -25,6 +25,8 @@ guix environment --container \
      --ad-hoc emacs-rime \
      --share=${emacs_rime_datadir}=${HOME}/.emacs.d/rime \
      --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/basic.el \
+     --ad-hoc emacs-org-static-blog \
+     --expose=${emacs_plugins_conf_dir}/static-blog.el=${HOME}/.emacs-config/static-blog.el \
      --ad-hoc emacs-w3m w3m \
      --ad-hoc emacs-sdcv sdcv stardict-ecdict\
      --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
