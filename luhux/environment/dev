@@ -13,10 +13,13 @@ bash_profile=${POS}/../dotfile/.bash_profile
 bashrc=${POS}/../dotfile/.bashrc.container
 git_conf=${POS}/../dotfile/.gitconfig
 
+
+export CONTAINER_NAME="dev"
 export EDITOR='emacsclient'
 guix environment --container \
      --no-cwd \
      --network \
+     -E^CONTAINER_NAME$ \
      --expose=${bash_profile}=${HOME}/.bash_profile \
      --expose=${bashrc}=${HOME}/.bashrc \
      --share=${direnv_conf}=/${HOME}/.config/direnv \
