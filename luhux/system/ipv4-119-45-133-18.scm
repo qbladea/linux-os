@@ -48,8 +48,7 @@
 	       (lookup-qemu-platforms
 		"arm" "aarch64"
                 "mips" "mips64"
-                "riscv"))
-	      (guix-support? #t)))
+                "riscv"))))
     (dbus-service)
     (service network-manager-service-type)
     (service wpa-supplicant-service-type)

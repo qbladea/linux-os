@@ -108,8 +108,7 @@
                (lookup-qemu-platforms
                 "arm" "aarch64"
                 "mips" "mips64"
-                "riscv"))
-              (guix-support? #t)))
+                "riscv"))))
     (service libvirt-service-type
              (libvirt-configuration
               (unix-sock-group "libvirt")))
