@@ -1,0 +1,21 @@
+# Bash initialization for interactive non-login shells and
+# for remote shells (info "(bash) Bash Startup Files").
+
+# 使用容器内提供的bash，而不是默认提供的bash
+export SHELL=${GUIX_ENVIRONMENT}/bin/bash
+
+alias ls='ls -p --color=auto'
+alias ll='ls -l'
+alias grep='grep --color=auto'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+if [ -e ${HOME}/.ssh-agent ]
+then
+    . ${HOME}/.ssh-agent
+fi
+
+export PS1="\n\u@\h \w [container] [date: \$(date)] \n[env]\$ "
+
+eval "$(direnv hook bash)"
