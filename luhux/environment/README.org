@@ -8,11 +8,10 @@
 
 用于开发的容器环境
 
-
  #+BEGIN_SRC shell
  ./dev --share=/srv/git/project
+ # 进入后执行bash以使用容器内完整的环境功能(bash_profile,bashrc)
  #+END_SRC
-
 
 * misc
 
