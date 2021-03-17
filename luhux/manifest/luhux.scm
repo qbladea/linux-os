@@ -11,6 +11,7 @@
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages rsync)
   #:use-module (gnu packages aidc)
+  #:use-module (gnu packages shellutils)
   #:use-module (luhux packages uim))
 
 (define-public guix-profile
@@ -26,7 +27,8 @@
    pinentry    ; gnupg
    git         ; version control
    uim-console ; console zh input method
-   rsync))     ; file sync
+   rsync       ; file sync
+   direnv))    ; direnv
 
 
 (packages->manifest
