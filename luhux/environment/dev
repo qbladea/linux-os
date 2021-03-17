@@ -4,16 +4,23 @@ set -u
 
 POS=$(dirname $(realpath $0))
 
+direnv_conf=${HOME}/.config/direnv/
 tmux_conf=${POS}/../dotfile/.tmux.conf
 emacs_conf=${POS}/../dotfile/.emacs.container
 emacs_plugins_conf_dir=${POS}/../dotfile/.emacs-config/
 emacs_rime_datadir=${HOME}/.emacs.d/rime
+bash_profile=${POS}/../dotfile/.bash_profile
+bashrc=${POS}/../dotfile/.bashrc.container
 git_conf=${POS}/../dotfile/.gitconfig
 
 export EDITOR='emacsclient'
 guix environment --container \
      --no-cwd \
      --network \
+     --expose=${bash_profile}=${HOME}/.bash_profile \
+     --expose=${bashrc}=${HOME}/.bashrc \
+     --share=${direnv_conf}=/${HOME}/.config/direnv \
+     --ad-hoc direnv bash \
      --ad-hoc glibc-utf8-locales ncurses \
      --preserve=^TERM$ \
      --preserve=^LANG$ \
@@ -39,9 +46,8 @@ guix environment --container \
      --expose=${emacs_plugins_conf_dir}/which-key-setup.el=${HOME}/.emacs-config/which-key-setup.el \
      --ad-hoc emacs-sdcv sdcv stardict-ecdict \
      --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
-     --ad-hoc make \
+     --ad-hoc emacs-debbugs \
+     --ad-hoc make cmake\
      --ad-hoc bash coreutils findutils diffutils patch gawk sed grep inetutils texinfo man-db gzip bzip2 xz zstd less \
      --ad-hoc sicp man-pages \
      "$@"
-     
-
