@@ -1,5 +1,6 @@
-./.bashrc
 ./.bash_profile
+./.bashrc
+./.bashrc.container
 ./.bin/zh-input
 ./.config/foot/foot.ini
 ./.config/gtk-3.0/settings.ini
@@ -7,7 +8,6 @@
 ./.config/hikari/hikari.conf
 ./.config/waybar/config
 ./.config/waybar/style.css
-./.emacs.container
 ./.emacs-config/basic-setup.el
 ./.emacs-config/c-setup.el
 ./.emacs-config/guile-setup.el
@@ -15,6 +15,7 @@
 ./.emacs-config/static-blog.el
 ./.emacs-config/translate-setup.el
 ./.emacs-config/which-key-setup.el
+./.emacs.container
 ./.gitconfig
 ./.gtkrc-2.0
 ./.screenrc
