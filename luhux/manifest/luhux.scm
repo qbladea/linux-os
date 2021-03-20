@@ -28,7 +28,8 @@
    git         ; version control
    uim-console ; console zh input method
    rsync       ; file sync
-   direnv))    ; direnv
+   direnv      ; direnv
+   mosh))      ; use for shanghai.guix.org.cn
 
 
 (packages->manifest
