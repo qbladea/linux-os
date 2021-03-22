@@ -11,11 +11,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if [ -e ${HOME}/.ssh-agent ]
-then
-    . ${HOME}/.ssh-agent
-fi
-
 export PS1="\n\u@\h \w [container] [date: \$(date)] \n[env]\$ "
 
 eval "$(direnv hook bash)"
