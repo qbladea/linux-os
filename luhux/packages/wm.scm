@@ -10,7 +10,6 @@
   #:use-module (gnu packages gtk)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages build-tools)
-  #:use-module (luhux packages lib)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix git-download)
