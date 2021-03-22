@@ -3,6 +3,3 @@
 
 ;; 括号高亮
 (show-paren-mode 1)
-
-;; lambda 符号
-(prettify-symbols-mode 1)

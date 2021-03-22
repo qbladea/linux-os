@@ -1,1 +1,2 @@
-(global-set-key (kbd "C-c u") 'sdcv-search-pointer)
+;; sdcv
+(global-set-key (kbd "C-t") 'sdcv-search-pointer)

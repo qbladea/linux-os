@@ -42,7 +42,8 @@ guix environment --container \
      --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/basic.el \
      --ad-hoc emacs-ggtags global gcc-toolchain gdb\
      --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/c-setup.el \
-     --ad-hoc guile guix emacs-paredit emacs-yasnippet emacs-magit emacs-geiser \
+     --ad-hoc guile guix emacs-paredit emacs-magit emacs-geiser \
+     --expose=${emacs_plugins_conf_dir}/elisp-setup.el=${HOME}/.emacs-config/elisp-setup.el \
      --expose=${emacs_plugins_conf_dir}/guile-setup.el=${HOME}/.emacs-config/guile-setup.el \
      --expose=${emacs_plugins_conf_dir}/mail-setup.el=${HOME}/.emacs-config/mail-setup.el \
      --ad-hoc emacs-which-key \
