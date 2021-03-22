@@ -3,4 +3,3 @@
 emacs --no-init-file --daemon &
 foot -f unifont-9 -t xterm-256color -s &
 waybar &
-system_checker_audio &
