@@ -134,7 +134,7 @@
     (service tlp-service-type
              (tlp-configuration
               (tlp-default-mode "BAT")
-              (cpu-scaling-governor-on-ac (list "ondemand"))))
+              (cpu-scaling-governor-on-ac (list "powersave"))))
     (service dnsmasq-service-type
              (dnsmasq-configuration
               (listen-addresses (list "127.0.0.1"))
