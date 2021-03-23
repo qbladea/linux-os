@@ -1,4 +1,4 @@
-(define-module (luhux system lenovo-g470)
+(define-module (luhux operating-system lenovo-g470)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages screen)
@@ -18,7 +18,7 @@
   #:use-module (gnu services xorg)
   #:use-module (gnu services avahi)
   #:use-module (gnu system nss)
-  #:use-module (luhux system root)
+  #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
 (define-public lenovo-g470:os-host-name "lenovog470")

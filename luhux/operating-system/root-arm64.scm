@@ -1,9 +1,9 @@
-(define-module (luhux system root-arm64)
+(define-module (luhux operating-system root-arm64)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)
-  #:use-module (luhux system root)
-  #:use-module (luhux system root-arm))
+  #:use-module (luhux operating-system root)
+  #:use-module (luhux operating-system root-arm))
 
 (define-public root-arm64:os-kernel
   linux-libre-arm64-generic)

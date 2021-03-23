@@ -1,4 +1,4 @@
-(define-module (luhux system root)
+(define-module (luhux operating-system root)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)

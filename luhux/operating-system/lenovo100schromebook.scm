@@ -1,4 +1,4 @@
-(define-module (luhux system lenovo100schromebook)
+(define-module (luhux operating-system lenovo100schromebook)
   #:use-module (gnu)
   #:use-module (guix modules)
   #:use-module (gnu packages)
@@ -27,7 +27,8 @@
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
-  #:use-module (luhux system root)
+  #:use-module (luhux system bootloader grub)
+  #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
 (define %battery-low-job
@@ -178,9 +179,11 @@
     cpupower)
    os-packages))
 
+
+;; 
 (define-public lenovo100schromebook:os-bootloader
   (bootloader-configuration
-   (bootloader grub-efi-bootloader)
+   (bootloader grub-efi-borken-bootloader)
    (target "/boot/efi")))
 
 (define-public lenovo100schromebook:os-mapped-devices

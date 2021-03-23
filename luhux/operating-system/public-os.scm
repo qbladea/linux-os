@@ -2,7 +2,7 @@
 ;; 用于公用的操作系统
 ;;
 
-(define-module (luhux system public-os)
+(define-module (luhux operating-system public-os)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages screen)
@@ -33,7 +33,7 @@
   #:use-module (gnu services xorg)
   #:use-module (gnu services avahi)
   #:use-module (gnu system nss)
-  #:use-module (luhux system root)
+  #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
 

@@ -5,7 +5,7 @@
 ;; 存在的问题:
 ;; 无法使用 --share=xxx=/var/lib 作为存储docker文件的共享，因为9p共享文件系统无法chown，解决方法:多加一块挂载在 /var/lib 的虚拟磁盘
 
-(define-module (luhux system only-docker)
+(define-module (luhux operating-system only-docker)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages linux)
