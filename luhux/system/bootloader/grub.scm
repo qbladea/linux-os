@@ -8,6 +8,7 @@
 (define-public grub-efi-borken-bootloader
   (bootloader
    (inherit grub-efi-bootloader)
+   (name 'grub-efi-borken)
    (package grub-efi-borken)))
 
 
