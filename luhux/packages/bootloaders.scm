@@ -21,5 +21,5 @@
                (add-after 'unpack 'force-efi-system
                  (lambda _
                    (substitute* "grub-core/osdep/linux/platform.c"
-                     (("is_not_empty_directory (\"/sys/firmware/efi\")")
-                      ("is_not_empty_directory (\"/boot/efi\")"))))))))))))
+                     (("/sys/firmware/efi")
+                      "/boot/efi")))))))))))
