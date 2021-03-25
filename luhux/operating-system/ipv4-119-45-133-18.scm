@@ -18,6 +18,7 @@
   #:use-module (gnu services xorg)
   #:use-module (gnu services avahi)
   #:use-module (gnu services auditd)
+  #:use-module (gnu services file-sharing)
   #:use-module (gnu system nss)
   #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux) :prefix luhux:))
@@ -67,7 +68,12 @@
     (service avahi-service-type
              (avahi-configuration
               (wide-area? #t)))
-    (service auditd-service-type))
+    (service auditd-service-type)
+    (service transmission-daemon-service-type
+             (transmission-daemon-configuration
+              (rpc-whitelist-enabled? #t)
+              (rpc-whitelist (list "::1" "127.0.0.1"))
+              (alt-speed-up 64))))
    (modify-services
        os-services
      (guix-service-type
