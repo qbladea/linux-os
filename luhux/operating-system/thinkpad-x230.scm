@@ -26,7 +26,6 @@
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
-  #:use-module (luhux system bootloader grub)
   #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
 
@@ -133,7 +132,9 @@
     (service tlp-service-type
              (tlp-configuration
               (tlp-default-mode "BAT")
-              (cpu-scaling-governor-on-ac (list "powersave"))))
+              (cpu-scaling-governor-on-ac (list "ondemand"))
+              (sata-linkpwr-on-ac "max_performance")
+              (sata-linkpwr-on-bat "max_performance")))
     (service dnsmasq-service-type
              (dnsmasq-configuration
               (listen-addresses (list "127.0.0.1"))
@@ -192,7 +193,7 @@
   (list
    (mapped-device
     (source
-     (uuid "2b06de2c-b917-48d3-8b25-3548319a0ba9"))
+     (uuid "2ecdf6fd-33c1-4fa9-9f0e-e84a7f87ded7"))
     (target "cryptroot")
     (type luks-device-mapping))))
 

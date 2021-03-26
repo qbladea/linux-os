@@ -23,6 +23,7 @@
     mate-themes  ; theme
     fontconfig   ; fc-cache command
     font-gnu-unifont ; basic font
+    font-terminus    ; hidpi font
     font-awesome     ; bar font
     waybar           ; wayland bar
     grim             ; wayland screenshot
