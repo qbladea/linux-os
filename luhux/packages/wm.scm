@@ -65,7 +65,7 @@
            (lambda* (#:key inputs outputs make-flags #:allow-other-keys)
              (apply invoke "bmake" "install" make-flags))))))
     (home-page "https://hikari.acmelabs.space/")
-    (synopsis "stacking Wayland compositor with additional tiling capabilities")
-    (description "stacking Wayland compositor with additional tiling
-capabilities, it is heavily inspired by the Calm Window manager")
+    (synopsis "Stacking Wayland compositor with additional tiling capabilities")
+    (description "Stacking Wayland compositor with additional tiling
+capabilities, it is heavily inspired by the Calm Window manager(cwm)")
     (license license:bsd-2)))
