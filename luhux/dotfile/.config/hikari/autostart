@@ -1,5 +1,5 @@
 #!/bin/sh
 
 emacs --no-init-file --daemon &
-foot -f terminus-9 -t xterm-256color -s &
+foot -f unifont-14 -t xterm-256color -s &
 waybar &
