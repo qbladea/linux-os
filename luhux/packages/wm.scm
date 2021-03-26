@@ -2,7 +2,6 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages)
   #:use-module (gnu packages base)
-  #:use-module (gnu packages bash)
   #:use-module (gnu packages freedesktop)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages wm)
@@ -14,7 +13,6 @@
   #:use-module (guix download)
   #:use-module (guix git-download)
   #:use-module (guix build-system gnu)
-  #:use-module (guix build-system cmake)
   #:use-module (guix utils))
 
 
