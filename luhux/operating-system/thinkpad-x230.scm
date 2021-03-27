@@ -1,4 +1,4 @@
-(define-module (luhux operating-system lenovo100schromebook)
+(define-module (luhux operating-system thinkpad-x230)
   #:use-module (gnu)
   #:use-module (guix modules)
   #:use-module (gnu packages)
@@ -10,9 +10,8 @@
   #:use-module (gnu packages terminals)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages wm)
-  #:use-module (gnu packages cryptsetup)
-  #:use-module (luhux packages linux)
   #:use-module (gnu packages admin)
+  #:use-module (gnu packages cryptsetup)
   #:use-module (gnu services ssh)
   #:use-module (gnu services networking)
   #:use-module (gnu services linux)
@@ -76,8 +75,8 @@
                   (lambda (port)
                     (format port "mem")))))))))
 
-(define-public lenovo100schromebook:os-host-name "lenovo100schromebook")
-(define-public lenovo100schromebook:os-services
+(define-public thinkpad-x230:os-host-name "thinkpad-x230")
+(define-public thinkpad-x230:os-services
   (append
    (list
     (service openntpd-service-type)
@@ -91,9 +90,9 @@
               (ruleset "/etc/nftables.rule")))
     (service zram-device-service-type
              (zram-device-configuration
-              (size "512M")
+              (size "2G")
               (compression-algorithm 'zstd)
-              (memory-limit "1G")
+              (memory-limit "3G")
               (priority 100)))
     (dbus-service)
     (elogind-service)
@@ -155,12 +154,12 @@
          (list
           (local-file "../key/119-45-133-18.pub")
           (local-file "../key/lenovog470.pub")
-          (local-file "../key/thinkpad-x230.pub")
-          (local-file "../key/lenovo100schromebook.pub"))
+          (local-file "../key/lenovo100schromebook.pub")
+          (local-file "../key/thinkpad-x230.pub"))
          %default-authorized-guix-keys))
        (discover? #t))))))
 
-(define-public lenovo100schromebook:os-packages
+(define-public thinkpad-x230:os-packages
   (append
    (list
     ;; 终端复用器
@@ -172,22 +171,24 @@
     kmscon
     fontconfig
     font-gnu-unifont
-    ;; efi vars tools
-    efibootmgr
     ;; libvirt ssh 需要的依賴
     netcat-openbsd
     ;; cpu 频率调整
-    cpupower)
+    cpupower
+    ;; btrfs
+    btrfs-progs
+    ;; cryptsetup
+    cryptsetup)
    os-packages))
 
 
 ;; 
-(define-public lenovo100schromebook:os-bootloader
+(define-public thinkpad-x230:os-bootloader
   (bootloader-configuration
-   (bootloader grub-efi-borken-bootloader)
-   (target "/boot/efi")))
+   (bootloader grub-bootloader)
+   (target "/dev/sda")))
 
-(define-public lenovo100schromebook:os-mapped-devices
+(define-public thinkpad-x230:os-mapped-devices
   (list
    (mapped-device
     (source
@@ -195,18 +196,18 @@
     (target "cryptroot")
     (type luks-device-mapping))))
 
-(define-public lenovo100schromebook:os-file-systems
+(define-public thinkpad-x230:os-file-systems
   (append
    (list
     (file-system
       (mount-point "/")
       (device "/dev/mapper/cryptroot")
       (type "btrfs")
-      (options "compress-force=zstd:15")
+      (options "compress-force=zstd")
       (check? #t)))
    %base-file-systems))
 
-(define-public lenovo100schromebook:users
+(define-public thinkpad-x230:users
   (append
    (list
     (user-account
@@ -223,7 +224,7 @@
        "users"))))
     %base-user-accounts))
 
-(define-public lenovo100schromebook:groups
+(define-public thinkpad-x230:groups
   (append
    (list
     (user-group
@@ -231,71 +232,44 @@
    %base-groups))
 
 
-(define-public lenovo100schromebook:os-swap-devices
+(define-public thinkpad-x230:os-swap-devices
   (list
    "/var/swapfiles/0"))
 
-(define-public lenovo100schromebook:os-initrd-modules
-  (append
-   (list  ; graphic card
-    "i915")
-   (list ; keyboard
-    "hid-generic"
-    "hid"
-    ;; usb
-    "evdev"
-    "ehci-pci"
-    "ohci-pci"
-    "xhci-pci"
-    "usbhid")
-   (list
-    ;; emmc
-    "sdhci-acpi"
-    "mmc_block"
-    ;; filesystem
-    "btrfs"
-    ;; crypto
-    "dm-crypt"
-    "xts"
-    "serpent_generic"
-    "wp512")))
-
-(define-public lenovo100schromebook:os-setuid-programs
+(define-public thinkpad-x230:os-setuid-programs
   (append
    (list)
    %setuid-programs))
 
-(define-public lenovo100schromebook:os-name-service-switch
+(define-public thinkpad-x230:os-name-service-switch
   %mdns-host-lookup-nss)
 
-(define-public lenovo100schromebook:os-kernel-arguments
+(define-public thinkpad-x230:os-kernel-arguments
   (append
-   (list "modprobe.blacklist=snd_soc_sst_cht_bsw_max98090_ti,uvcvideo")
-   ;; disable not working sound card
+   (list "modprobe.blacklist=uvcvideo")
    ;; disable camera autoload
    os-kernel-arguments))
 
-(define-public lenovo100schromebook:os-kernel linux-libre/lenovo100schromebook)
+(define-public thinkpad-x230:os-kernel linux-libre)
 
-(define-public lenovo100schromebook:os
+(define-public thinkpad-x230:os
   (operating-system
     (timezone os-timezone)
     (locale os-locale)
-    (kernel-arguments lenovo100schromebook:os-kernel-arguments)
-    (kernel lenovo100schromebook:os-kernel)
-    (initrd-modules lenovo100schromebook:os-initrd-modules)
+    (kernel-arguments thinkpad-x230:os-kernel-arguments)
+    (kernel thinkpad-x230:os-kernel)
     (issue os-issue)
     (skeletons os-skeletons)
-    (host-name lenovo100schromebook:os-host-name)
-    (services lenovo100schromebook:os-services)
-    (packages lenovo100schromebook:os-packages)
-    (users lenovo100schromebook:users)
-    (groups lenovo100schromebook:groups)
-    (mapped-devices lenovo100schromebook:os-mapped-devices)
-    (file-systems lenovo100schromebook:os-file-systems)
-    (swap-devices lenovo100schromebook:os-swap-devices)
-    (bootloader lenovo100schromebook:os-bootloader)
-    (setuid-programs lenovo100schromebook:os-setuid-programs)
-    (name-service-switch lenovo100schromebook:os-name-service-switch)))
+    (host-name thinkpad-x230:os-host-name)
+    (services thinkpad-x230:os-services)
+    (packages thinkpad-x230:os-packages)
+    (users thinkpad-x230:users)
+    (groups thinkpad-x230:groups)
+    (mapped-devices thinkpad-x230:os-mapped-devices)
+    (file-systems thinkpad-x230:os-file-systems)
+    (swap-devices thinkpad-x230:os-swap-devices)
+    (bootloader thinkpad-x230:os-bootloader)
+    (setuid-programs thinkpad-x230:os-setuid-programs)
+    (name-service-switch thinkpad-x230:os-name-service-switch)))
 
-lenovo100schromebook:os
+thinkpad-x230:os

@@ -18,7 +18,6 @@
   #:use-module (gnu packages networking)
   #:use-module (gnu packages vim)
   #:use-module (gnu packages nano)
-  #:use-module (luhux packages wm)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages virtualization)
   #:use-module (gnu packages games)

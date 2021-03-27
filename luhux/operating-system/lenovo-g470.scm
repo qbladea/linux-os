@@ -8,7 +8,6 @@
   #:use-module (gnu packages wm)
   #:use-module (gnu packages linux)
   #:use-module (gnu packages admin)
-  #:use-module (luhux packages wm)
   #:use-module (gnu services ssh)
   #:use-module (gnu services networking)
   #:use-module (gnu services linux)

@@ -12,7 +12,6 @@
   #:use-module (gnu packages image)
   #:use-module (gnu packages pulseaudio)
   #:use-module (gnu packages linux)
-  #:use-module (luhux packages wm)
   #:use-module ((luhux manifest luhux) #:prefix luhux:))
 
 (define-public guix-profile
