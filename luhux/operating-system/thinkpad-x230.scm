@@ -78,7 +78,9 @@
 (define-public thinkpad-x230:os-services
   (append
    (list
-    (service openntpd-service-type)
+    (service openntpd-service-type
+             (openntpd-configuration
+              (constraint-from (list "www.gnu.org"))))
     (service earlyoom-service-type)
     (service openssh-service-type
              (openssh-configuration
@@ -89,9 +91,9 @@
               (ruleset "/etc/nftables.rule")))
     (service zram-device-service-type
              (zram-device-configuration
-              (size "2G")
+              (size "4G")
               (compression-algorithm 'zstd)
-              (memory-limit "3G")
+              (memory-limit "6G")
               (priority 100)))
     (dbus-service)
     (elogind-service)

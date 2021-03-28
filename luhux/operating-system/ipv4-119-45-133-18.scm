@@ -27,7 +27,9 @@
 (define-public ipv4-119-45-133-18:os-services
   (append
    (list
-    (service openntpd-service-type)
+    (service openntpd-service-type
+             (openntpd-configuration
+              (constraint-from (list "www.gnu.org"))))
     (service earlyoom-service-type)
     (service openssh-service-type
 	     (openssh-configuration
@@ -85,6 +87,7 @@
          (list
           (local-file "../key/119-45-133-18.pub")
           (local-file "../key/lenovog470.pub")
+          (local-file "../key/thinkpad-x230.pub")
           (local-file "../key/lenovo100schromebook.pub"))
          %default-authorized-guix-keys))
        (discover? #t))))))
