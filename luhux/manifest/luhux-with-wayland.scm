@@ -23,8 +23,9 @@
     mate-themes  ; theme
     fontconfig   ; fc-cache command
     font-gnu-unifont ; basic font
-    font-terminus    ; hidpi font
+    font-dejavu      ; basic font
     font-awesome     ; bar font
+    font-hack        ; bar font
     waybar           ; wayland bar
     grim             ; wayland screenshot
     emacs-rime       ; emacs input method
