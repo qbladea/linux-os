@@ -249,8 +249,8 @@
 
 (define-public thinkpad-x230:os-kernel-arguments
   (append
-   (list "modprobe.blacklist=uvcvideo")
-   ;; disable camera autoload
+   (list "modprobe.blacklist=iwlwifi")
+   ;; disable wifi module
    os-kernel-arguments))
 
 (define-public thinkpad-x230:os-kernel linux-libre)
