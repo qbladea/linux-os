@@ -1,8 +1,0 @@
-#!/bin/sh
-
-TMPDIR=${HOME}/.zh_inputs/
-mkdir -pv ${TMPDIR}
-TEMP=$(mktemp -p ${TMPDIR})
-foot -f unifont-16 -t xterm --title=zh-input --app-id=zh-input -w 1000x200 -- emacsclient -nw ${TEMP}
-cat ${TEMP} |  wl-copy 
-rm ${TEMP}
