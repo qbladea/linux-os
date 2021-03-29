@@ -12,6 +12,7 @@
   #:use-module (gnu packages wm)
   #:use-module (gnu packages admin)
   #:use-module (gnu packages cryptsetup)
+  #:use-module (gnu packages ncurses)
   #:use-module (gnu services ssh)
   #:use-module (gnu services networking)
   #:use-module (gnu services linux)
