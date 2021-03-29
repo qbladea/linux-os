@@ -12,6 +12,10 @@
   #:use-module (gnu packages image)
   #:use-module (gnu packages pulseaudio)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages ibus)
+  #:use-module (gnu packages gnome)
+  #:use-module (gnu packages glib)
+  #:use-module (gnu packages suckless)
   #:use-module (luhux packages wm)
   #:use-module ((luhux manifest luhux) #:prefix luhux:))
 
@@ -21,8 +25,10 @@
     hikari       ; wayland wm
     luhux-dwl    ; wayland wm
     wl-clipboard ; wayland clipboard
-    foot         ; wayland terminal
-    mate-themes  ; theme
+    ibus ibus-rime dconf dbus ; input method
+    st                 ; terminal emulator
+    mate-themes        ; gtk theme
+    adwaita-icon-theme ; icon theme
     fontconfig   ; fc-cache command
     font-gnu-unifont ; basic font
     font-dejavu      ; basic font
@@ -30,8 +36,9 @@
     font-hack        ; bar font
     waybar           ; wayland bar
     grim             ; wayland screenshot
+    emacs-paredit    ; lisp edit
     emacs-rime       ; emacs input method
-    emacs-minimal    ; for zh-input
+    emacs-no-x       ; base editor
     pulseaudio       ; audio
     acpi)            ; battery status
    luhux:guix-profile))
