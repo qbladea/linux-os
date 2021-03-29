@@ -1,5 +1,2 @@
 #!/bin/sh
 
-emacs --no-init-file --daemon &
-foot -f unifont-14 -t xterm-256color -s &
-waybar &

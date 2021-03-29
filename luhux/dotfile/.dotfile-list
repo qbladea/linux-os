@@ -2,7 +2,6 @@
 ./.bashrc
 ./.bashrc.container
 ./.bin/zh-input
-./.config/foot/foot.ini
 ./.config/gtk-3.0/settings.ini
 ./.config/hikari/autostart
 ./.config/hikari/hikari.conf

@@ -46,4 +46,8 @@ then
     . ${HOME}/.bashrc.user
 fi
 
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+
 eval "$(direnv hook bash)"
