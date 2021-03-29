@@ -135,8 +135,11 @@
              (tlp-configuration
               (tlp-default-mode "BAT")
               (cpu-scaling-governor-on-ac (list "ondemand"))
+              (cpu-scaling-governor-on-bat (list "powersave"))
+              (sched-powersave-on-bat? #t)
               (sata-linkpwr-on-ac "max_performance")
-              (sata-linkpwr-on-bat "max_performance")))
+              (sata-linkpwr-on-bat "max_performance")
+              (nmi-watchdog? #t)))
     (service dnsmasq-service-type
              (dnsmasq-configuration
               (listen-addresses (list "127.0.0.1"))
@@ -249,8 +252,10 @@
 
 (define-public thinkpad-x230:os-kernel-arguments
   (append
-   (list "modprobe.blacklist=iwlwifi")
-   ;; disable wifi module
+   (list "modprobe.blacklist=iwlwifi"    ; disable wifi module
+         "acpi_backlight=vendor"         ; fn key
+         "acpi_osi=\"!Windows 2012\"")   ; fn key
+
    os-kernel-arguments))
 
 (define-public thinkpad-x230:os-kernel linux-libre)
