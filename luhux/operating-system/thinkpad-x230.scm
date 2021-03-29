@@ -175,8 +175,6 @@
     wireguard-tools
     ;; 支持CJK显示的终端+字体
     kmscon
-    fontconfig
-    font-gnu-unifont
     ;; libvirt ssh 需要的依賴
     netcat-openbsd
     ;; cpu 频率调整
@@ -184,7 +182,11 @@
     ;; btrfs
     btrfs-progs
     ;; cryptsetup
-    cryptsetup)
+    cryptsetup
+    ;; battery
+    acpi
+    ;; ncurses, clear command
+    ncurses)
    os-packages))
 
 
