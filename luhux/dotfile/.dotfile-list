@@ -4,8 +4,6 @@
 ./.config/gtk-3.0/settings.ini
 ./.config/hikari/autostart
 ./.config/hikari/hikari.conf
-./.config/waybar/config
-./.config/waybar/style.css
 ./.emacs-config/basic-setup.el
 ./.emacs-config/c-setup.el
 ./.emacs-config/guile-setup.el
