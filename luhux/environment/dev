@@ -52,6 +52,6 @@ guix environment --container \
      --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
      --ad-hoc emacs-debbugs \
      --ad-hoc make cmake\
-     --ad-hoc bash coreutils findutils diffutils patch gawk sed grep inetutils texinfo man-db gzip bzip2 xz zstd less \
+     --ad-hoc bash coreutils findutils diffutils patch gawk sed grep inetutils texinfo man-db gzip bzip2 xz zstd less psmisc procps htop\
      --ad-hoc sicp man-pages \
      "$@"
