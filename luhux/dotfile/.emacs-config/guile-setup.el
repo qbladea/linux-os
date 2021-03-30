@@ -1,5 +1,9 @@
 ;; Guix 源码位置
-(setq guix-source-dir "/srv/git/guix/")
+
+(if (getenv "GUIX_SOURCE_REPO")
+    (setq guix-source-dir (getenv "GUIIX_SOURCE_REPO"))
+  (setq guix-source-dir "/srv/code/git/guix/"))
+
 
 ;; Guix開發
 (with-eval-after-load 'geiser-guile
