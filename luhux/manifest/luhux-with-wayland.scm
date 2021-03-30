@@ -23,7 +23,6 @@
   (append
    (list
     hikari       ; wayland wm
-    luhux-dwl    ; wayland wm
     wl-clipboard ; wayland clipboard
     ibus ibus-rime dconf dbus ; input method
     st                 ; terminal emulator
@@ -31,14 +30,7 @@
     adwaita-icon-theme ; icon theme
     fontconfig   ; fc-cache command
     font-gnu-unifont ; basic font
-    font-dejavu      ; basic font
-    font-awesome     ; bar font
-    font-hack        ; bar font
-    waybar           ; wayland bar
     grim             ; wayland screenshot
-    emacs-paredit    ; lisp edit
-    emacs-rime       ; emacs input method
-    emacs-no-x       ; base editor
     pulseaudio       ; audio
     acpi)            ; battery status
    luhux:guix-profile))

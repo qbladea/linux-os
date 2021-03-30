@@ -174,9 +174,6 @@
 (define-public thinkpad-x230:os-packages
   (append
    (list
-    ;; 终端复用器
-    tmux
-    screen
     ;; VPN
     wireguard-tools
     ;; 支持CJK显示的终端+字体

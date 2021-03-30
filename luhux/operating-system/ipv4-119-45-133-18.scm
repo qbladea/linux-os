@@ -20,8 +20,7 @@
   #:use-module (gnu services auditd)
   #:use-module (gnu services file-sharing)
   #:use-module (gnu system nss)
-  #:use-module (luhux operating-system root)
-  #:use-module ((luhux manifest luhux) :prefix luhux:))
+  #:use-module (luhux operating-system root))
 
 (define-public ipv4-119-45-133-18:os-host-name "119-45-133-18")
 (define-public ipv4-119-45-133-18:os-services
@@ -95,15 +94,12 @@
 (define-public ipv4-119-45-133-18:os-packages
   (append
    (list
-    ;; 终端复用器
-    tmux
-    screen
     ;; VPN
     wireguard-tools
     ;; audit
     audit
-    )
-   luhux:guix-profile
+    ;; btrfs-progs
+    btrfs-progs)
    os-packages))
 
 (define-public ipv4-119-45-133-18:os-bootloader

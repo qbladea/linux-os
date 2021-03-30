@@ -74,32 +74,28 @@ this is a public machine !!! \n")
        (authorized-keys
         (append
          (list
-          (local-file "/srv/git/guixkey/119.45.133.18.pub")
-          (local-file "/srv/git/guixkey/lenovog470.pub")
-          (local-file "/srv/git/guixkey/lenovo100schromebook.pub"))
+          (local-file "../key/119-45-133-18.pub")
+          (local-file "../key/lenovog470.pub")
+          (local-file "../key/lenovo100schromebook.pub")
+          (local-file "../key/thinkpad-x230.pub"))
          %default-authorized-guix-keys))
        (discover? #t))))))
 
 (define-public public-os:os-packages
   (append
    (list
-    ;; 终端复用器
-    tmux
-    screen
     ;; VPN
     wireguard-tools
     ;; 支持CJK显示的终端+字体
     kmscon
-    fontconfig
-    font-gnu-unifont
     ;; libvirt ssh 需要的依賴
-    netcat-openbsd)
-   luhux-with-wayland:guix-profile
-   (list
+    netcat-openbsd
     ;; 文件系统
     btrfs-progs dosfstools
     ;; 加密
-    cryptsetup
+    cryptsetup)
+   luhux-with-wayland:guix-profile
+   (list
     ;; 资源监视器
     htop bmon iftop nload
     ;; 网络工具
@@ -107,8 +103,7 @@ this is a public machine !!! \n")
     ;; 虚拟机
     qemu virt-manager
     ;; 游戏
-    curseofwar nethack cataclysm-dda
-    )
+    curseofwar nethack cataclysm-dda)
    os-packages))
 
 (define-public public-os:os-bootloader

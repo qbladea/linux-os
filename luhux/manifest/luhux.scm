@@ -4,6 +4,8 @@
   #:use-module (gnu packages tmux)
   #:use-module (gnu packages screen)
   #:use-module (gnu packages vim)
+  #:use-module (gnu packages emacs)
+  #:use-module (gnu packages emacs-xyz)
   #:use-module (gnu packages ncurses)
   #:use-module (gnu packages ssh)
   #:use-module (gnu packages password-utils)
@@ -18,7 +20,11 @@
   (list
    tmux        ; bsd tmux
    screen      ; gnu screen
-   vim         ; editor
+   ;; editor
+   vim
+   emacs
+   emacs-rime
+   emacs-paredit
    ncurses     ; clear command
    openssh     ; ssh
    password-store ; password manager

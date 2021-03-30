@@ -11,6 +11,7 @@
   #:use-module (gnu packages linux)
   #:use-module (gnu packages wm)
   #:use-module (gnu packages cryptsetup)
+  #:use-module (gnu packages disk)
   #:use-module (luhux packages linux)
   #:use-module (gnu packages admin)
   #:use-module (gnu services ssh)
@@ -28,8 +29,7 @@
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
   #:use-module (luhux system bootloader grub)
-  #:use-module (luhux operating-system root)
-  #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
+  #:use-module (luhux operating-system root))
 
 (define %battery-low-job
   #~(job
@@ -163,21 +163,22 @@
 (define-public lenovo100schromebook:os-packages
   (append
    (list
-    ;; 终端复用器
-    tmux
-    screen
     ;; VPN
     wireguard-tools
     ;; 支持CJK显示的终端+字体
     kmscon
-    fontconfig
-    font-gnu-unifont
     ;; efi vars tools
     efibootmgr
     ;; libvirt ssh 需要的依賴
     netcat-openbsd
     ;; cpu 频率调整
-    cpupower)
+    cpupower
+    ;; btrfs
+    btrfs-progs
+    ;; dosfstools
+    dosfstools
+    ;; cryptsetup
+    cryptsetup)
    os-packages))
 
 
