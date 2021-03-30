@@ -24,6 +24,9 @@ alias grep='grep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+export CODE_DIR=/srv/code
+alias dev='emacs-container --share=${CODE_DIR}'
+alias misc='emacs-container --share=${HOME}/Downloads'
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]

@@ -1,0 +1,61 @@
+#!/bin/sh
+
+set -u
+
+POS=$(dirname $(realpath $0))
+
+direnv_conf=${HOME}/.config/direnv/
+tmux_conf=${POS}/../dotfile/.tmux.conf
+emacs_conf=${POS}/../dotfile/.emacs
+emacs_rime_datadir=${HOME}/.emacs.d/rime
+bash_profile=${POS}/../dotfile/.bash_profile
+bashrc=${POS}/../dotfile/.bashrc
+git_conf=${POS}/../dotfile/.gitconfig
+
+export GUIX_ENVIRONMENT_CONTAINER="emacs"
+guix environment --container\
+     --no-cwd \
+     --network \
+     --ad-hoc bash\
+     --ad-hoc findutils\
+     --ad-hoc coreutils util-linux\
+     --ad-hoc patch diffutils\
+     --ad-hoc grep sed gawk\
+     --ad-hoc inetutils iproute2\
+     --ad-hoc texinfo man-db\
+     --ad-hoc gzip bzip2 xz zstd\
+     --ad-hoc psmisc procps htop\
+     --ad-hoc less\
+     --preserve=^GUIX_ENVIRONMENT_CONTAINER$\
+     --expose=${bash_profile}=${HOME}/.bash_profile \
+     --expose=${bashrc}=${HOME}/.bashrc \
+     --ad-hoc direnv\
+     --share=${direnv_conf}=/${HOME}/.config/direnv\
+     --ad-hoc ncurses\
+     --preserve=^TERM$\
+     --ad-hoc glibc-utf8-locales\
+     --preserve=^LANG$\
+     --preserve=^GUIX_LOCPATH$\
+     --ad-hoc tmux\
+     --expose=${tmux_conf}=${HOME}/.tmux.conf\
+     --ad-hoc screen\
+     --expose=${screenrc}=${HOME}/.screenrc\
+     --ad-hoc nss-certs curl\
+     --expose=/etc/ssl\
+     --ad-hoc git\
+     --expose=${git_conf}=${HOME}/.gitconfig \
+     --ad-hoc emacs\
+     --expose=${emacs_conf}=${HOME}/.emacs\
+     --ad-hoc emacs-rime\
+     --share=${HOME}/.emacs.d/rime\
+     --ad-hoc emacs-ggtags\
+     --ad-hoc global\
+     --ad-hoc gcc-toolchain gdb\
+     --ad-hoc guile guix\
+     --ad-hoc emacs-paredit emacs-magit emacs-geiser \
+     --ad-hoc emacs-which-key \
+     --ad-hoc emacs-sdcv sdcv stardict-ecdict \
+     --ad-hoc emacs-debbugs \
+     --ad-hoc make cmake\
+     --ad-hoc sicp man-pages \
+     "$@"
