@@ -20,11 +20,7 @@
   (list
    tmux        ; bsd tmux
    screen      ; gnu screen
-   ;; editor
-   vim
-   emacs
-   emacs-rime
-   emacs-paredit
+   vim         ; editor
    ncurses     ; clear command
    openssh     ; ssh
    password-store ; password manager

@@ -5,8 +5,6 @@
   #:use-module (gnu packages tmux)
   #:use-module (gnu packages screen)
   #:use-module (gnu packages vim)
-  #:use-module (gnu packages emacs)
-  #:use-module (gnu packages emacs-xyz)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages shellutils)
   #:use-module (gnu packages version-control)
