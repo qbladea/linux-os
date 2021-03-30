@@ -1,17 +1,8 @@
 ./.bash_profile
 ./.bashrc
-./.bashrc.container
 ./.config/gtk-3.0/settings.ini
 ./.config/hikari/autostart
 ./.config/hikari/hikari.conf
-./.emacs-config/basic-setup.el
-./.emacs-config/c-setup.el
-./.emacs-config/guile-setup.el
-./.emacs-config/mail-setup.el
-./.emacs-config/static-blog.el
-./.emacs-config/translate-setup.el
-./.emacs-config/which-key-setup.el
-./.emacs.container
 ./.emacs
 ./.gitconfig
 ./.gtkrc-2.0

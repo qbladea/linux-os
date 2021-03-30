@@ -16,16 +16,8 @@ then
     return
 fi
 
-# Source the system-wide file.
-source /etc/bashrc
 
-# Adjust the prompt depending on whether we're in 'guix environment'.
-if [ -n "$GUIX_ENVIRONMENT" ]
-then
-export PS1="\n\u@\h \w [date: \$(date)]\n[env]\$ "
-else
-export PS1="\n\u@\h \w [date: \$(date)]\n\$ "
-fi
+
 alias ls='ls -p --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
@@ -33,21 +25,41 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if [ -e ${HOME}/.ssh-agent ]
+# Adjust the prompt depending on whether we're in 'guix environment'.
+if [ -n "$GUIX_ENVIRONMENT" ]
 then
-    . ${HOME}/.ssh-agent
+    if [ -n "$GUIX_ENVIRONMENT_CONTAINER" ]
+    then
+       # 使用容器内提供的bash，而不是默认提供的bash
+       export SHELL=${GUIX_ENVIRONMENT}/bin/bash
+    fi
+    export PS1="\n\u@\h \w [date: \$(date)]\n[env]\$ "
+else
+    # Source the system-wide file.
+    source /etc/bashrc
+
+    # 提示符
+    export PS1="\n\u@\h \w [date: \$(date)]\n\$ "
+
+    # ssh-agent
+    if [ -e ${HOME}/.ssh-agent ]
+    then
+	. ${HOME}/.ssh-agent
+    fi
+
+    # 隐私
+    export TMPDIR=${HOME}/.tmp/
+
+    # 输入法
+    export XMODIFIERS=@im=ibus
+    export GTK_IM_MODULE=xim
+    export QT_IM_MODULE=xim
+
+    # 设备特定配置
+    if [ -e ${HOME}/.bashrc.user ]
+    then
+	. ${HOME}/.bashrc.user
+    fi
+    eval "$(direnv hook bash)"    
 fi
 
-export PATH=${HOME}/.bin:${PATH}
-export TMPDIR=${HOME}/.tmp/
-
-if [ -e ${HOME}/.bashrc.user ]
-then
-    . ${HOME}/.bashrc.user
-fi
-
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
-
-eval "$(direnv hook bash)"
