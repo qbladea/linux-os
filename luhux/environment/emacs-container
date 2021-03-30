@@ -8,7 +8,6 @@ direnv_conf=${HOME}/.config/direnv/
 tmux_conf=${POS}/../dotfile/.tmux.conf
 screenrc=${POS}/../dotfile/.screenrc
 emacs_conf=${POS}/../dotfile/.emacs
-emacs_rime_datadir=${HOME}/.emacs.d/rime
 bash_profile=${POS}/../dotfile/.bash_profile
 bashrc=${POS}/../dotfile/.bashrc
 git_conf=${POS}/../dotfile/.gitconfig
@@ -47,6 +46,9 @@ guix environment --container\
      --expose=${git_conf}=${HOME}/.gitconfig \
      --ad-hoc emacs\
      --expose=${emacs_conf}=${HOME}/.emacs\
+     --ad-hoc emacs-w3m\
+     --ad-hoc links lynx w3m\
+     --share=${HOME}/.w3m\
      --ad-hoc emacs-rime\
      --share=${HOME}/.emacs.d/rime\
      --ad-hoc emacs-ggtags\
