@@ -6,20 +6,18 @@ POS=$(dirname $(realpath $0))
 
 direnv_conf=${HOME}/.config/direnv/
 tmux_conf=${POS}/../dotfile/.tmux.conf
-emacs_conf=${POS}/../dotfile/.emacs.container
-emacs_plugins_conf_dir=${POS}/../dotfile/.emacs-config/
+emacs_conf=${POS}/../dotfile/.emacs
 emacs_rime_datadir=${HOME}/.emacs.d/rime
 bash_profile=${POS}/../dotfile/.bash_profile
 bashrc=${POS}/../dotfile/.bashrc.container
 git_conf=${POS}/../dotfile/.gitconfig
 
-
-export CONTAINER_NAME="dev"
-export EDITOR='emacsclient'
+export GUIX_ENVIRONMENT_CONTAINER="dev"
+export EDITOR='emacsclient -nw'
 guix environment --container \
      --no-cwd \
      --network \
-     -E^CONTAINER_NAME$ \
+     -E^GUIX_ENVIRONMENT_CONTAINER$ \
      --expose=${bash_profile}=${HOME}/.bash_profile \
      --expose=${bashrc}=${HOME}/.bashrc \
      --share=${direnv_conf}=/${HOME}/.config/direnv \
@@ -39,17 +37,10 @@ guix environment --container \
      --preserve=^EDITOR$ \
      --ad-hoc emacs-rime \
      --share=${emacs_rime_datadir}=${HOME}/.emacs.d/rime \
-     --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/basic.el \
      --ad-hoc emacs-ggtags global gcc-toolchain gdb\
-     --expose=${emacs_plugins_conf_dir}/basic-setup.el=${HOME}/.emacs-config/c-setup.el \
      --ad-hoc guile guix emacs-paredit emacs-magit emacs-geiser \
-     --expose=${emacs_plugins_conf_dir}/elisp-setup.el=${HOME}/.emacs-config/elisp-setup.el \
-     --expose=${emacs_plugins_conf_dir}/guile-setup.el=${HOME}/.emacs-config/guile-setup.el \
-     --expose=${emacs_plugins_conf_dir}/mail-setup.el=${HOME}/.emacs-config/mail-setup.el \
      --ad-hoc emacs-which-key \
-     --expose=${emacs_plugins_conf_dir}/which-key-setup.el=${HOME}/.emacs-config/which-key-setup.el \
      --ad-hoc emacs-sdcv sdcv stardict-ecdict \
-     --expose=${emacs_plugins_conf_dir}/translate-setup.el=${HOME}/.emacs-config/translate-setup.el \
      --ad-hoc emacs-debbugs \
      --ad-hoc make cmake\
      --ad-hoc bash coreutils findutils diffutils patch gawk sed grep inetutils texinfo man-db gzip bzip2 xz zstd less psmisc procps htop\
