@@ -68,4 +68,4 @@ else
     fi
 fi
 
-eval "$(direnv hook bash)"    
+eval "$(direnv hook bash)"
