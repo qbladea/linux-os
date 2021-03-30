@@ -40,28 +40,17 @@
 (define-public skel-screenrc
   (local-file "../dotfile/.screenrc" "screenrc"))
 
-(define-public skel-vimrc
-  (local-file "../dotfile/.vimrc" "vimrc"))
-
-(define-public skel-emacs-container
-  (local-file "../dotfile/.emacs.container" "emacs-container-conf"))
-
 (define-public skel-uim
   (local-file "../dotfile/.uim" "uim-conf"))
 
 (define-public skel-gitconfig
   (local-file "../dotfile/.gitconfig" "gitconfig"))
 
-(define-public skel-bashrc-container
-  (local-file "../dotfile/.bashrc.container" "bashrc-container"))
-
 (define-public os-skeletons
   `((".bash_profile" ,skel-bash-profile)
     (".bashrc" ,skel-bashrc)
-    (".bashrc.container" ,skel-bashrc-container)
     (".tmux.conf" ,skel-tmux-conf)
     (".screenrc" ,skel-screenrc)
-    (".emacs.container" ,skel-emacs-container)
     (".uim" ,skel-uim)
     (".gitconfig" ,skel-gitconfig)))
 
@@ -89,9 +78,6 @@
     screen
     ;; 编辑器
     vim
-    emacs
-    emacs-paredit
-    emacs-rime
     ;; 输入法
     uim
     ;; 环境
