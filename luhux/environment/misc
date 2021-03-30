@@ -20,7 +20,7 @@ guix environment --container \
      --expose=${tmux_conf}=${HOME}/.tmux.conf \
      --ad-hoc nss-certs curl \
      --expose=/etc/ssl \
-     --ad-hoc emacs-no-x \
+     --ad-hoc emacs-next \
      --expose=${emacs_conf}=${HOME}/.emacs \
      --ad-hoc emacs-rime \
      --share=${emacs_rime_datadir}=${HOME}/.emacs.d/rime \
