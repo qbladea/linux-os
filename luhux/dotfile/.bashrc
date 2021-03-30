@@ -31,10 +31,12 @@ alias misc='emacs-container --share=${HOME}/Downloads'
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
 then
-    if [ -n "$GUIX_ENVIRONMENT_CONTAINER" ]
+    if [ "$GUIX_ENVIRONMENT_CONTAINER" == "emacs" ]
     then
        # 使用容器内提供的bash，而不是默认提供的bash
        export SHELL=${GUIX_ENVIRONMENT}/bin/bash
+       # EDITOR
+       export EDITOR="emacsclient -nw"
     fi
     export PS1="\n\u@\h \w [date: \$(date)]\n[env]\$ "
 else

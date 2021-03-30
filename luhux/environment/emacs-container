@@ -6,6 +6,7 @@ POS=$(dirname $(realpath $0))
 
 direnv_conf=${HOME}/.config/direnv/
 tmux_conf=${POS}/../dotfile/.tmux.conf
+screenrc=${POS}/../dotfile/.screenrc
 emacs_conf=${POS}/../dotfile/.emacs
 emacs_rime_datadir=${HOME}/.emacs.d/rime
 bash_profile=${POS}/../dotfile/.bash_profile
