@@ -26,6 +26,7 @@
   #:use-module (gnu services pm)
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
+  #:use-module (luhux system services notebook)
   #:use-module (gnu system nss)
   #:use-module (luhux operating-system root)
   #:use-module ((luhux manifest luhux-with-wayland) :prefix luhux-with-wayland:))
@@ -138,8 +139,8 @@
               (cpu-scaling-governor-on-ac (list "ondemand"))
               (cpu-scaling-governor-on-bat (list "powersave"))
               (sched-powersave-on-bat? #t)
-              (sata-linkpwr-on-ac "max_performance")
-              (sata-linkpwr-on-bat "max_performance")
+              (sata-linkpwr-on-ac "min_power")
+              (sata-linkpwr-on-bat "min_power")
               (nmi-watchdog? #t)))
     (service dnsmasq-service-type
              (dnsmasq-configuration
@@ -149,7 +150,11 @@
                         "1.1.1.1"
                         "114.114.114.114"))
               (cache-size 1024)))
-    (rngd-service))
+    (rngd-service)
+    (service brightness-service-type
+             (brightness-configuration
+              (suffix "builtin-screen")
+              (device "intel_backlight"))))
    (modify-services
        os-services
      (guix-service-type
