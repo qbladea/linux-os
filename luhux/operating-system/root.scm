@@ -26,32 +26,6 @@
 (define-public os-host-name "guix")
 (define-public os-issue "Welcome!\n")
 
-(define-public skel-bash-profile
-  (local-file "../dotfile/.bash_profile" "bash-profile"))
-
-(define-public skel-bashrc
-  (local-file "../dotfile/.bashrc" "bashrc"))
-
-(define-public skel-tmux-conf
-  (local-file "../dotfile/.tmux.conf" "tmux-conf"))
-
-(define-public skel-screenrc
-  (local-file "../dotfile/.screenrc" "screenrc"))
-
-(define-public skel-uim
-  (local-file "../dotfile/.uim" "uim-conf"))
-
-(define-public skel-gitconfig
-  (local-file "../dotfile/.gitconfig" "gitconfig"))
-
-(define-public os-skeletons
-  `((".bash_profile" ,skel-bash-profile)
-    (".bashrc" ,skel-bashrc)
-    (".tmux.conf" ,skel-tmux-conf)
-    (".screenrc" ,skel-screenrc)
-    (".uim" ,skel-uim)
-    (".gitconfig" ,skel-gitconfig)))
-
 (define-public %china-substitute-urls
   (list
    "https://mirrors.sjtug.sjtu.edu.cn/guix"))
@@ -108,7 +82,6 @@
     (kernel os-kernel)
     (host-name os-host-name)
     (issue os-issue)
-    (skeletons os-skeletons)
     (file-systems os-file-systems)
     (bootloader os-bootloader)
     (services os-services)))

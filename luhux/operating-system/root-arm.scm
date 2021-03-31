@@ -31,7 +31,6 @@
     (kernel root-arm:os-kernel)
     (initrd-modules root-arm:os-initrd-modules)
     (issue os-issue)
-    (skeletons os-skeletons)
     (host-name os-host-name)
     (services os-services)
     (packages root-arm:os-packages)

@@ -278,7 +278,6 @@
     (kernel lenovo100schromebook:os-kernel)
     (initrd-modules lenovo100schromebook:os-initrd-modules)
     (issue os-issue)
-    (skeletons os-skeletons)
     (host-name lenovo100schromebook:os-host-name)
     (services lenovo100schromebook:os-services)
     (packages lenovo100schromebook:os-packages)

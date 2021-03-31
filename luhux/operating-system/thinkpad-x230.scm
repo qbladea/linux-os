@@ -272,7 +272,6 @@
     (kernel-arguments thinkpad-x230:os-kernel-arguments)
     (kernel thinkpad-x230:os-kernel)
     (issue os-issue)
-    (skeletons os-skeletons)
     (host-name thinkpad-x230:os-host-name)
     (services thinkpad-x230:os-services)
     (packages thinkpad-x230:os-packages)
