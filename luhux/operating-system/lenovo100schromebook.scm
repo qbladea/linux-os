@@ -12,7 +12,6 @@
   #:use-module (gnu packages wm)
   #:use-module (gnu packages cryptsetup)
   #:use-module (gnu packages disk)
-  #:use-module (luhux packages linux)
   #:use-module (gnu packages admin)
   #:use-module (gnu services ssh)
   #:use-module (gnu services networking)
