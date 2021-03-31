@@ -135,14 +135,6 @@
              (tlp-configuration
               (tlp-default-mode "BAT")
               (cpu-scaling-governor-on-ac (list "powersave"))))
-    (service dnsmasq-service-type
-             (dnsmasq-configuration
-              (listen-addresses (list "127.0.0.1"))
-              (servers (list
-                        "8.8.8.8"
-                        "1.1.1.1"
-                        "114.114.114.114"))
-              (cache-size 1024)))
     (rngd-service))
    (modify-services
        os-services
@@ -203,7 +195,7 @@
       (mount-point "/")
       (device "/dev/mapper/cryptroot")
       (type "btrfs")
-      (options "compress-force=zstd:15")
+      (options "compress-force=zstd")
       (check? #t)))
    %base-file-systems))
 
