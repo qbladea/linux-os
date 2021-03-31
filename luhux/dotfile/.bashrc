@@ -25,7 +25,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-export CODE_DIR=/srv/code
+export CODE_DIR=${HOME}/code
 alias dev='emacs-container --share=${CODE_DIR}'
 alias misc='emacs-container --share=${HOME}/Downloads'
 
