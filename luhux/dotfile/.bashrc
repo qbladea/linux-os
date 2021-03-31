@@ -42,7 +42,12 @@ then
     export PS1="\n\u@\h \w [date: \$(date)]\n[env]\$ "
 else
     # Source the system-wide file.
-    source /etc/bashrc
+    if [ "${HOME}" == "/data/data/com.termux/files/home" ]
+    then
+	echo "This is termux!"
+    else
+        source /etc/bashrc
+    fi
 
     # 提示符
     export PS1="\n\u@\h \w [date: \$(date)]\n\$ "
