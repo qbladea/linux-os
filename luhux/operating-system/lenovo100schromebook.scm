@@ -145,8 +145,6 @@
        (authorized-keys
         (append
          (list
-          (local-file "../key/119-45-133-18.pub")
-          (local-file "../key/lenovog470.pub")
           (local-file "../key/thinkpad-x230.pub")
           (local-file "../key/lenovo100schromebook.pub"))
          %default-authorized-guix-keys))
