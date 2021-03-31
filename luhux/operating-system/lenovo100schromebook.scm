@@ -28,7 +28,6 @@
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
-  #:use-module (luhux system bootloader grub)
   #:use-module (luhux operating-system root))
 
 (define %battery-low-job
@@ -175,7 +174,7 @@
 ;; 
 (define-public lenovo100schromebook:os-bootloader
   (bootloader-configuration
-   (bootloader grub-efi-borken-bootloader)
+   (bootloader grub-efi-bootloader)
    (target "/boot/efi")))
 
 (define-public lenovo100schromebook:os-mapped-devices
@@ -230,26 +229,10 @@
   (append
    (list  ; graphic card
     "i915")
-   (list ; keyboard
-    "hid-generic"
-    "hid"
-    ;; usb
-    "evdev"
-    "ehci-pci"
-    "ohci-pci"
-    "xhci-pci"
-    "usbhid")
-   (list
-    ;; emmc
+   (list ; emmc
     "sdhci-acpi"
-    "mmc_block"
-    ;; filesystem
-    "btrfs"
-    ;; crypto
-    "dm-crypt"
-    "xts"
-    "serpent_generic"
-    "wp512")))
+    "mmc_block")
+   %base-initrd-modules))
 
 (define-public lenovo100schromebook:os-setuid-programs
   (append
@@ -261,19 +244,16 @@
 
 (define-public lenovo100schromebook:os-kernel-arguments
   (append
-   (list "modprobe.blacklist=snd_soc_sst_cht_bsw_max98090_ti,uvcvideo")
+   (list "modprobe.blacklist=snd_soc_sst_cht_bsw_max98090_ti")
    ;; disable not working sound card
-   ;; disable camera autoload
    os-kernel-arguments))
-
-(define-public lenovo100schromebook:os-kernel linux-libre/lenovo100schromebook)
 
 (define-public lenovo100schromebook:os
   (operating-system
     (timezone os-timezone)
     (locale os-locale)
     (kernel-arguments lenovo100schromebook:os-kernel-arguments)
-    (kernel lenovo100schromebook:os-kernel)
+    (kernel os-kernel)
     (initrd-modules lenovo100schromebook:os-initrd-modules)
     (issue os-issue)
     (host-name lenovo100schromebook:os-host-name)
