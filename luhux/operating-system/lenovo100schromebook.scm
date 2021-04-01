@@ -181,7 +181,7 @@
   (list
    (mapped-device
     (source
-     (uuid "2b06de2c-b917-48d3-8b25-3548319a0ba9"))
+     (uuid "b60054a8-514f-4bd7-b13a-68ed9745d815"))
     (target "cryptroot")
     (type luks-device-mapping))))
 
