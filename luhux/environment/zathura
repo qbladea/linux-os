@@ -17,5 +17,6 @@ guix environment --container \
      --share=${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY} \
      --ad-hoc fontconfig font-gnu-unifont \
      --ad-hoc zathura zathura-pdf-mupdf \
+     --share=${HOME}/.local/share/zathura \
      --ad-hoc coreutils findutils \
      ${@}
