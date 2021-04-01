@@ -27,6 +27,7 @@
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
   #:use-module (gnu system nss)
+  #:use-module (luhux packages linux-nonfree)
   #:use-module (luhux operating-system root))
 
 (define %battery-low-job
@@ -132,7 +133,7 @@
     (service tlp-service-type
              (tlp-configuration
               (tlp-default-mode "BAT")
-              (cpu-scaling-governor-on-ac (list "powersave"))))
+              (cpu-scaling-governor-on-ac (list "performance"))))
     (rngd-service))
    (modify-services
        os-services
@@ -247,12 +248,20 @@
    ;; disable not working sound card
    os-kernel-arguments))
 
+(define-public lenovo100schromebook:os-kernel
+  linux-nonfree-5.10)
+
+(define-public lenovo100schromebook:os-firmware
+  (list
+   linux-firmware-nonfree-20210315))
+
 (define-public lenovo100schromebook:os
   (operating-system
     (timezone os-timezone)
     (locale os-locale)
     (kernel-arguments lenovo100schromebook:os-kernel-arguments)
-    (kernel os-kernel)
+    (kernel lenovo100schromebook:os-kernel)
+    (firmware lenovo100schromebook:os-firmware)
     (initrd-modules lenovo100schromebook:os-initrd-modules)
     (issue os-issue)
     (host-name lenovo100schromebook:os-host-name)
