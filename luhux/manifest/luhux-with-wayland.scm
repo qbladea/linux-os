@@ -16,7 +16,6 @@
   #:use-module (gnu packages gnome)
   #:use-module (gnu packages glib)
   #:use-module (gnu packages suckless)
-  #:use-module (luhux packages wm)
   #:use-module ((luhux manifest luhux) #:prefix luhux:))
 
 (define-public guix-profile
