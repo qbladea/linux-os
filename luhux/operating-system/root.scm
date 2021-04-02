@@ -78,12 +78,14 @@
   (operating-system
     (timezone os-timezone)
     (locale os-locale)
-    (kernel-arguments os-kernel-arguments)
     (kernel os-kernel)
+    (kernel-arguments os-kernel-arguments)
+    (firmware os-firmware)
     (host-name os-host-name)
     (issue os-issue)
-    (file-systems os-file-systems)
+    (services os-services)
+    (packages os-packages)
     (bootloader os-bootloader)
-    (services os-services)))
+    (file-systems os-file-systems)))
 
 root:os
