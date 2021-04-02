@@ -109,10 +109,11 @@
                 "arm" "aarch64"
                 "mips" "mips64"
                 "riscv"))))
-    (service libvirt-service-type
-             (libvirt-configuration
-              (unix-sock-group "libvirt")))
-    (service virtlog-service-type)
+    ;; 由于libvirt出现了问题，暂时不使用它.
+    ;; (service libvirt-service-type
+    ;;          (libvirt-configuration
+    ;;           (unix-sock-group "libvirt")))
+    ;; (service virtlog-service-type)
     (service guix-publish-service-type
              (guix-publish-configuration
               (host "0.0.0.0")
@@ -209,7 +210,7 @@
        "audio"
        "video"
        "kvm"
-       "libvirt"
+;;       "libvirt"
        "users"))))
     %base-user-accounts))
 
