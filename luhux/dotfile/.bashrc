@@ -26,19 +26,10 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 export CODE_DIR=${HOME}/code
-alias dev='emacs-container --share=${CODE_DIR}'
-alias misc='emacs-container --share=${HOME}/Downloads'
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
 then
-    if [ "$GUIX_ENVIRONMENT_CONTAINER" == "emacs" ]
-    then
-       # 使用容器内提供的bash，而不是默认提供的bash
-       export SHELL=${GUIX_ENVIRONMENT}/bin/bash
-       # EDITOR
-       export EDITOR="emacsclient -nw"
-    fi
     export PS1="\n\u@\h \w [date: \$(date)]\n[env]\$ "
 else
     # Source the system-wide file.
@@ -48,6 +39,9 @@ else
     else
         source /etc/bashrc
     fi
+
+    # EDITOR
+    export EDITOR="emacsclient -nw"
 
     # 提示符
     export PS1="\n\u@\h \w [date: \$(date)]\n\$ "

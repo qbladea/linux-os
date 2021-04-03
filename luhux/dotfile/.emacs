@@ -1,3 +1,8 @@
+;; 主题
+(load-theme 'wombat)
+;; 字体
+(add-to-list 'default-frame-alist
+             '(font . "unifont-13"))
 ;; 邮箱
 (setq user-full-name "qblade")
 (setq user-mail-address "qblade@protonmail.com")
