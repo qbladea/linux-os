@@ -23,6 +23,7 @@ guix environment --container\
      --ad-hoc grep sed gawk\
      --ad-hoc inetutils iproute2\
      --ad-hoc texinfo man-db\
+     --ad-hoc tar\
      --ad-hoc gzip bzip2 xz zstd\
      --ad-hoc psmisc procps htop\
      --ad-hoc less\
