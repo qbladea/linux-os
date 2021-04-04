@@ -121,7 +121,7 @@
              (guix-publish-configuration
               (host "0.0.0.0")
               (port 8090)
-              (compression '())
+              (compression '(("zstd" 3) ("lzip" 9)))
               (workers 4)
               (advertise? #t)))
     (service avahi-service-type
