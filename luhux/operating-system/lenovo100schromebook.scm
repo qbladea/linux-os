@@ -26,6 +26,7 @@
   #:use-module (gnu services pm)
   #:use-module (gnu services dns)
   #:use-module (gnu services base)
+  #:use-module (luhux system services notebook)
   #:use-module (gnu system nss)
   #:use-module (luhux packages linux-nonfree)
   #:use-module (luhux operating-system root))
@@ -135,7 +136,11 @@
              (tlp-configuration
               (tlp-default-mode "BAT")
               (cpu-scaling-governor-on-ac (list "performance"))))
-    (rngd-service))
+    (rngd-service)
+    (service brightness-service-type
+             (brightness-configuration
+              (suffix "builtin-screen")
+              (device "intel_backlight"))))
    (modify-services
        os-services
      (guix-service-type
