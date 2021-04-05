@@ -26,6 +26,7 @@
     emacs-magit git
     emacs-ggtags global
     emacs-geiser emacs-paredit
+    emacs-org-static-blog
     gcc-toolchain-10 gdb
     clang-toolchain lldb
     guile-3.0 guix 
