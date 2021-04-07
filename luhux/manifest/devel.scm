@@ -20,7 +20,7 @@
 
 (define-public guix-profile
    (list
-    emacs
+    emacs-next-pgtk
     emacs-rime
     emacs-w3m w3m
     emacs-magit git
