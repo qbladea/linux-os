@@ -3,6 +3,7 @@
 ./.config/gtk-3.0/settings.ini
 ./.config/hikari/autostart
 ./.config/hikari/hikari.conf
+./.config/foot/foot.ini
 ./.emacs
 ./.gitconfig
 ./.gtkrc-2.0
