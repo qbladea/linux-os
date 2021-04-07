@@ -2,7 +2,13 @@
 (load-theme 'wombat)
 ;; 字体
 (add-to-list 'default-frame-alist
-             '(font . "unifont-13"))
+             '(font . "terminus-13"))
+;; 禁用滚动条
+(scroll-bar-mode -1)
+;; 禁用工具栏
+(tool-bar-mode -1)
+;; 禁用菜单栏
+(menu-bar-mode -1)
 ;; 邮箱
 (setq user-full-name "qblade")
 (setq user-mail-address "qblade@protonmail.com")
@@ -48,3 +54,5 @@
 (global-set-key (kbd "C-c t") 'sdcv-search-pointer)
 ;; which-key
 (which-key-mode 1)
+;; w3m
+(setq browse-url-browser-function 'browse-url-chromium)
