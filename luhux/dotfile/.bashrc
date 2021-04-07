@@ -58,6 +58,8 @@ else
     # 全员wayland
     export WLR_XWAYLAND="/fuckxorg"
     export GDK_BACKEND=wayland
+    export QT_QPA_PLATFORM=wayland
+    export MOZ_ENABLE_WAYLAND=1
 
     # 设备特定配置
     if [ -e ${HOME}/.bashrc.user ]
