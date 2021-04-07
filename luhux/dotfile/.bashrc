@@ -55,10 +55,9 @@ else
     # 隐私
     export TMPDIR=${HOME}/.tmp/
 
-    # 输入法
-    export XMODIFIERS=@im=ibus
-    export GTK_IM_MODULE=xim
-    export QT_IM_MODULE=xim
+    # 全员wayland
+    export WLR_XWAYLAND="/fuckxorg"
+    export GDK_BACKEND=wayland
 
     # 设备特定配置
     if [ -e ${HOME}/.bashrc.user ]

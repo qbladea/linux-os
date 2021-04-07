@@ -23,12 +23,12 @@
    (list
     hikari       ; wayland wm
     wl-clipboard ; wayland clipboard
-    ibus ibus-rime dconf dbus ; input method
-    st                 ; terminal emulator
+    foot               ; terminal emulator
     mate-themes        ; gtk theme
     adwaita-icon-theme ; icon theme
     fontconfig   ; fc-cache command
     font-gnu-unifont ; basic font
+    font-terminus    ; terminal font
     grim             ; wayland screenshot
     pulseaudio       ; audio
     acpi)            ; battery status
